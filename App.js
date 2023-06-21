@@ -19,7 +19,7 @@ export default function App() {
           <View style={styles.profileContainer}>
             <View style={styles.profileInfo}>
               <Image
-                source={require('/path/to/profile-image.png')}
+                
                 style={styles.profileImage}
               />
               <Text style={styles.profileName}>John Doe</Text>
