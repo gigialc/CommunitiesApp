@@ -9,7 +9,6 @@ export default function App() {
     setCurrentPage(page);
   };
 
-
   return (
     <View style={styles.container}>
       {/* App Content */}
@@ -32,7 +31,7 @@ export default function App() {
       </View>
 
       <Image
-      source={require('/Users/georgina/DestigFemme/assets/logo.png')} // Replace with the actual path to your logo image
+      source={require('/DestigFemme/assets/logo.png')} // Replace with the actual path to your logo image
       style={styles.logo}
         />
 
