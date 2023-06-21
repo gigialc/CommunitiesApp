@@ -69,6 +69,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  text: {
+    fontFamily: 'Arial', //
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   bottomNavBar: {
     flexDirection: 'row',
     height: 56,
