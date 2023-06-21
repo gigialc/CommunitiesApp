@@ -15,7 +15,19 @@ export default function App() {
       {/* App Content */}
       <View style={styles.content}>
         {currentPage === 'Home' && <Text>Welcome to Destig Femme</Text>}
-        {currentPage === 'Profile' && <Text>Welcome to Profile Page</Text>}
+       {currentPage === 'Profile' && (
+          <View style={styles.profileContainer}>
+            <View style={styles.profileInfo}>
+              <Image
+                source={require('/path/to/profile-image.png')}
+                style={styles.profileImage}
+              />
+              <Text style={styles.profileName}>John Doe</Text>
+            </View>
+            <Text style={styles.profileText}>Welcome to your Profile Page</Text>
+            {/* Add more UI components or content here */}
+          </View>
+        )}
         {currentPage === 'Create' && <Text>Welcome to Settings Page</Text>}
       </View>
 
