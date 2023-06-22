@@ -14,11 +14,11 @@ export default function App() {
       {/* App Content */}
       <View style={styles.content}>
         {currentPage === 'Home' && <Text>Welcome to Destig Femme</Text>}
-       {currentPage === 'Profile' && (
+      {currentPage === 'Profile' && (
           <View style={styles.profileContainer}>
             <View style={styles.profileInfo}>
               <Image
-                
+                source={require('./assets/logo.png')} // Adjust the path to your logo image
                 style={styles.profileImage}
               />
               <Text style={styles.profileName}>John Doe</Text>
