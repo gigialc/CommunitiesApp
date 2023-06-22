@@ -112,13 +112,12 @@ const styles = StyleSheet.create({
  
  userImage: {
   position: 'absolute',
-  top: 10,
-  left: 10,
+  top: 160, // Adjust the value to position the user image vertically
+  left: 1, // Adjust the value to position the user image horizontally
   width: 50,
   height: 50,
   resizeMode: 'cover',
 },
-
 profileInfo: {
   position: 'absolute',
   flexDirection: 'row',
