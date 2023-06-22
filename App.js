@@ -116,5 +116,7 @@ const styles = StyleSheet.create({
   left: 2, // Adjust the value to position it horizontally
   width: 150, // Adjust the value to set the desired width
   height: 150, // Adjust the value to set the desired height
+     margin: 0,
+  padding: 0,
   },
 });
