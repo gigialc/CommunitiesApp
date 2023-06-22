@@ -118,12 +118,6 @@ const styles = StyleSheet.create({
   height: 50,
   resizeMode: 'cover',
 },
-profileInfo: {
-  position: 'absolute',
-  top: 10, // Adjust the value to position the profile info vertically
-  left: 10, // Adjust the value to position the profile info horizontally
-  flexDirection: 'row',
-},
 
 
 
