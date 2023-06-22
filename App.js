@@ -19,7 +19,7 @@ export default function App() {
             <View style={styles.profileInfo}>
               <Image
                 source={require('./assets/user.png')} // Adjust the path to your logo image
-                style={styles.profileImage}
+                style={styles.userImage}
               />
               <Text style={styles.profileName}>John Doe</Text>
             </View>
@@ -108,5 +108,11 @@ const styles = StyleSheet.create({
     left: 1, // Adjust the value to position the logo horizontally
     width: 150, // Adjust the value to set the desired width of the logo
     height: 150, 
+  },
+ 
+  userImage: {
+    marginTop: 10,
+    width: 120,
+    height: 120,
   },
 });
