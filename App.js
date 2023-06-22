@@ -112,11 +112,20 @@ const styles = StyleSheet.create({
  
  userImage: {
   position: 'absolute',
-    top: 20,
-  left: 20,
+  top: 10,
+  left: 10,
   width: 50,
   height: 50,
   resizeMode: 'cover',
 },
+
+profileInfo: {
+  position: 'relative',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginTop: 20,
+  marginLeft: 20,
+},
+
 
 });
