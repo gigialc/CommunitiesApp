@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
  
  userImage: {
   position: 'absolute',
-  top: 160, // Adjust the value to position the user image vertically
-  left: 1, // Adjust the value to position the user image horizontally
+  top: -10, // Adjust the value to position the user image vertically
+  left: -10, // Adjust the value to position the user image horizontally
   width: 50,
   height: 50,
   resizeMode: 'cover',
