@@ -21,7 +21,7 @@ export default function App() {
                 source={require('./assets/user.png')} // Adjust the path to your logo image
                 style={styles.userImage}
               />
-              <Text style={styles.profileName}>John Doe</Text>
+              <Text style={styles.profileName}>Georgina Alcaraz</Text>
             </View>
             <Text style={styles.profileText}>Welcome to your Profile Page</Text>
             {/* Add more UI components or content here */}
