@@ -112,8 +112,8 @@ const styles = StyleSheet.create({
  
  userImage: {
   position: 'absolute',
-  top: 10,
-  left: 10,
+    top: 20,
+  left: 20,
   width: 50,
   height: 50,
   resizeMode: 'cover',
