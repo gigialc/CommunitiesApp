@@ -18,7 +18,7 @@ export default function App() {
           <View style={styles.profileContainer}>
             <View style={styles.profileInfo}>
               <Image
-                source={require('./assets/logo.png')} // Adjust the path to your logo image
+                source={require('./assets/user.png')} // Adjust the path to your logo image
                 style={styles.profileImage}
               />
               <Text style={styles.profileName}>John Doe</Text>
