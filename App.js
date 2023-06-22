@@ -110,13 +110,13 @@ const styles = StyleSheet.create({
     height: 150, 
   },
  
-  userImage: {
+ userImage: {
   position: 'absolute',
-  top: 5, // Position it right below the logo (logo height + desired spacing)
-  left: 5, // Adjust the value to position it horizontally
-  width: 150, // Adjust the value to set the desired width
-  height: 150, // Adjust the value to set the desired height
-     margin: 0,
+  top: 0,
+  left: 0,
+  width: 150,
+  height: 150,
+  margin: 0,
   padding: 0,
-  },
+},
 });
