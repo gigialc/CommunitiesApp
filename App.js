@@ -120,9 +120,8 @@ const styles = StyleSheet.create({
 },
 
 profileInfo: {
-  position: 'relative',
+  position: 'absolute',
   flexDirection: 'row',
-  alignItems: 'center',
   marginTop: 20,
   marginLeft: 20,
 },
