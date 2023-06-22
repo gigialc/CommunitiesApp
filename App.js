@@ -111,8 +111,10 @@ const styles = StyleSheet.create({
   },
  
   userImage: {
-    marginTop: 10,
-    width: 120,
-    height: 120,
+   position: 'absolute',
+  top: 151, // Position it right below the logo (logo height + 1)
+  left: 1, // Adjust the value to position it horizontally
+  width: 150, // Adjust the value to set the desired width
+  height: 50, // Adjust the value to set the desired height
   },
 });
