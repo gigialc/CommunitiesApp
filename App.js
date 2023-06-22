@@ -112,11 +112,11 @@ const styles = StyleSheet.create({
  
  userImage: {
   position: 'absolute',
-  top: 0,
-  left: 0,
-  width: 150,
-  height: 150,
-  margin: 0,
-  padding: 0,
+  top: 10,
+  left: 10,
+  width: 50,
+  height: 50,
+  resizeMode: 'cover',
 },
+
 });
