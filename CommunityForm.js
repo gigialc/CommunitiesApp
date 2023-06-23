@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { CommunityContext } from './CommunityContext';
+
 
 const CreateCommunity = () => {
   const [name, setName] = useState('');
@@ -18,33 +19,67 @@ const CreateCommunity = () => {
 
   return (
     <View>
-      <TextInput
+      <TextInput style={styles.type}
         placeholder="Name of Community"
         value={name}
         onChangeText={text => setName(text)}
       />
 
-      <TextInput
+      <TextInput style={styles.type}
         placeholder="Description of Community"
         value={description}
         onChangeText={text => setDescription(text)}
       />
 
-      <TextInput
+      <TextInput style={styles.type}
         placeholder="Name of Founder"
         value={founder}
         onChangeText={text => setFounder(text)}
       />
 
-      <TextInput
+      <TextInput style={styles.type}
         placeholder="Goal"
         value={goal}
         onChangeText={text => setGoal(text)}
       />
 
-      <Button title="Submit" onPress={handleSubmit} />
+      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+        <Text style={styles.buttonText}>Submit</Text>
+      </TouchableOpacity>
     </View>
   );
 };
 
 export default CreateCommunity;
+
+const styles = StyleSheet.create({
+button:{
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingVertical: 12,
+  paddingHorizontal: 20,
+  marginTop:20,
+  borderRadius: 2,
+  elevation: 4,
+  backgroundColor: "#FFDFF6",
+  },
+  buttonText: {
+    color: 'black',
+    fontSize: 16,
+    //fontWeight: 'bold',
+  },
+  type:{
+
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    left:0,
+    marginTop:20,
+    borderRadius: 1,
+    fontSize: 17, 
+    elevation: 0,
+    top:0,
+    //backgroundColor: "gray",
+  },
+  
+});

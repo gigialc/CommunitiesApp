@@ -6,6 +6,7 @@ import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
 
 
+
 export default function App() {
   const [currentPage, setCurrentPage] = useState('Home');
 
@@ -38,7 +39,7 @@ export default function App() {
           
             <CommunityProvider initialData={communityData}>
              <HomePage/>
-              <CreateCommunity/>
+              
             </CommunityProvider>
           
         
@@ -46,15 +47,15 @@ export default function App() {
       )}
         
         
-      {currentPage === 'Profile' && (
+      {currentPage === 'Create' && (
           <View style={styles.profileContainer}>
             
              <Image
                 //source={require('./assets/user.png')} // Adjust the path to your logo image
                 //style={styles.userImage}
               />
-              <Text style={styles.profileName}></Text>
-            <Text style={styles.profileText}>Welcome to your Profile Page</Text>
+              <Text style={styles.createName}></Text>
+            <Text style={styles.createText}>Welcome to your Create page</Text>
             {/* Add more UI components or content here */}   
             <CommunityProvider>
             
@@ -63,7 +64,7 @@ export default function App() {
           </View>
         )}
 
-        {currentPage === 'Create' && <Text>Welcome to Settings Page</Text>}
+        {currentPage === 'Profile' && <Text>Welcome to your Profile Page</Text>}
       </View>
 
       <Image
@@ -153,16 +154,65 @@ const styles = StyleSheet.create({
   resizeMode: 'cover',
   },
 
-  profileName:{
+  CreateName:{
+    position: 'center',
+    top: 0, // Adjust the value to position the logo vertically
+    left: 1, // Adjust the value to position the logo horizontally
+    width: 100, // Adjust the value to set the desired width of the logo
+    height: 100,
+    fontSize: 100,
+
+  },
+  profileContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  profileCard: {
+    backgroundColor: 'pink',
+    borderRadius: 80,
+    padding: 100,
+    alignItems: 'left',
+  },
+  profileName: {
     position: 'absolute',
     top: 10, // Adjust the value to position the logo vertically
-    left: 1, // Adjust the value to position the logo horizontally
+    left: 1, // Adju2st the value to position the logo horizontally
     width: 50, // Adjust the value to set the desired width of the logo
     height: 50,
     fontSize: 50,
-
-  }
-  
+  },
+  createText: {
+    fontSize: 20,
+    marginTop: 0,
+    marginBottom: 20,
+    color: '#fff',
+    textAlign: 'center',
+  },
+  homeText:{
+    top:0,
+    fontSize: 23,
+    color: 'black',
+    paddingBottom: 30,
+    
+  },
+  homeContainer:{
+    width:300 ,
+    position: "absolute",
+    top:110,
+    left: 30, // Adjust the value to position the logo horizontally
+  },
+  navItemText:{
+    fontWeight: 'bold',
+    marginBottom:5,
+    fontSize:15,
+  },
+  activeNavItem:{
+    fontSize:20,
+    fontWeight: 'bold',
+    marginBottom:5,
+    color: "#eb7fe0",
+  },
 
 });
 
