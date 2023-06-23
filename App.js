@@ -48,14 +48,12 @@ export default function App() {
         
         
       {currentPage === 'Create' && (
-          <View style={styles.profileContainer}>
-            
-             <Image
+          <View style={styles.createContainer}>
+            <Text style={styles.createText}>Create your community here!</Text>
+            {/* // <Image
                 //source={require('./assets/user.png')} // Adjust the path to your logo image
                 //style={styles.userImage}
-              />
-              <Text style={styles.createName}></Text>
-            <Text style={styles.createText}>Welcome to your Create page</Text>
+              /> */}
             {/* Add more UI components or content here */}   
             <CommunityProvider>
             
@@ -155,25 +153,29 @@ const styles = StyleSheet.create({
   },
 
   CreateName:{
-    position: 'center',
     top: 0, // Adjust the value to position the logo vertically
-    left: 1, // Adjust the value to position the logo horizontally
-    width: 100, // Adjust the value to set the desired width of the logo
-    height: 100,
     fontSize: 100,
 
   },
-  profileContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  createContainer:{
+    width:300 ,
+    position: "absolute",
+    top:120,
+    left: 30, // Adjust the value to position the logo horizontally
   },
-  profileCard: {
-    backgroundColor: 'pink',
-    borderRadius: 80,
-    padding: 100,
-    alignItems: 'left',
+  createText:{
+    top:0,
+    fontSize: 23,
+    color: 'black',
+    paddingBottom: 30,
+
   },
+  // profileCard: {
+  //   backgroundColor: 'pink',
+  //   borderRadius: 80,
+  //   padding: 100,
+  //   alignItems: 'left',
+  // },
   profileName: {
     position: 'absolute',
     top: 10, // Adjust the value to position the logo vertically
@@ -182,13 +184,7 @@ const styles = StyleSheet.create({
     height: 50,
     fontSize: 50,
   },
-  createText: {
-    fontSize: 20,
-    marginTop: 0,
-    marginBottom: 20,
-    color: '#fff',
-    textAlign: 'center',
-  },
+ 
   homeText:{
     top:0,
     fontSize: 23,
