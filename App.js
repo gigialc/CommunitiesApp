@@ -1,6 +1,10 @@
 
+import {  CommunityProvider } from './CommunityContext';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import HomePage from './HomePage';
+import CreateCommunity from './CommunityForm';
+
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -8,25 +12,57 @@ export default function App() {
   const handleNavigation = (page) => {
     setCurrentPage(page);
   };
+  const communityData = {
+    name: 'Community Name',
+    description: 'Community Description',
+    founder: 'Founder Name',
+    goal: 'Community Goal',
+  };
 
   return (
     <View style={styles.container}>
       {/* App Content */}
+
       <View style={styles.content}>
-        {currentPage === 'Home' && <Text>Welcome to Destig Femme</Text>}
+      {currentPage === 'Home' && (
+          <View style={styles.homeContainer}>
+           
+             <Image
+                //source={require('./assets/user.png')} // Adjust the path to your logo image
+                //style={styles.userImage}
+              />
+              <Text style={styles.homeName}></Text>
+            
+            <Text style={styles.homeText}>Welcome to your Home Page</Text>
+            {/* Add more UI components or content here */}    
+          
+            <CommunityProvider initialData={communityData}>
+             <HomePage/>
+              <CreateCommunity/>
+            </CommunityProvider>
+          
+        
+        </View>
+      )}
+        
+        
       {currentPage === 'Profile' && (
           <View style={styles.profileContainer}>
-            <View style={styles.profileInfo}>
-              <Image
-                source={require('./assets/user.png')} // Adjust the path to your logo image
-                style={styles.userImage}
+            
+             <Image
+                //source={require('./assets/user.png')} // Adjust the path to your logo image
+                //style={styles.userImage}
               />
-              <Text style={styles.profileName}>Georgina Alcaraz</Text>
-            </View>
+              <Text style={styles.profileName}></Text>
             <Text style={styles.profileText}>Welcome to your Profile Page</Text>
-            {/* Add more UI components or content here */}
+            {/* Add more UI components or content here */}   
+            <CommunityProvider>
+            
+            <CreateCommunity/>
+              </CommunityProvider> 
           </View>
         )}
+
         {currentPage === 'Create' && <Text>Welcome to Settings Page</Text>}
       </View>
 
@@ -59,14 +95,12 @@ export default function App() {
         >
           <Text style={currentPage === 'Create' ? styles.activeNavItem : styles.navItemText}>
             Create
+            
           </Text>
         </TouchableOpacity>
       </View>
     </View>
   );
-
-
-
   
 }
 
@@ -117,8 +151,18 @@ const styles = StyleSheet.create({
   width: 50,
   height: 50,
   resizeMode: 'cover',
-},
+  },
 
+  profileName:{
+    position: 'absolute',
+    top: 10, // Adjust the value to position the logo vertically
+    left: 1, // Adjust the value to position the logo horizontally
+    width: 50, // Adjust the value to set the desired width of the logo
+    height: 50,
+    fontSize: 50,
 
+  }
+  
 
 });
+
