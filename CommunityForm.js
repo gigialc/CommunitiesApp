@@ -16,6 +16,13 @@ const CreateCommunity = () => {
     updateCommunityData(communityData);
     console.log(communityData)
   };
+  const SubscribeButton = () => {
+    return (
+      <TouchableOpacity style={styles.subscribeButton}>
+        <Text style={styles.subscribeButtonText}>Subscribe</Text>
+      </TouchableOpacity>
+    );
+  };
 
   return (
     <View>
@@ -78,8 +85,20 @@ button:{
     borderRadius: 1,
     fontSize: 17, 
     elevation: 0,
-    top:0,
     //backgroundColor: "gray",
+  },
+  subscribeButton: {
+    backgroundColor: 'pink',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+    subscribeButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
   },
   
 });

@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+
+import React, { useContext, useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { CommunityContext } from './CommunityContext';
 
 const HomePage = () => {
   const { communityData } = useContext(CommunityContext);
+  const [clickCount, setClickCount] = useState(0);
 
-  
+  const handleSubscribeClick = () => {
+    setClickCount((prevCount) => prevCount + 1);
+  };
+
+  const subscribeButtonText = clickCount < 3 ? 'View' : 'Subscribe';
 
   return (
     <View style={styles.communidadcontainer}>
@@ -13,9 +19,16 @@ const HomePage = () => {
       <Text style={styles.comunidadinput}>Description: {communityData.description}</Text>
       <Text style={styles.comunidadinput}>Founder: {communityData.founder}</Text>
       <Text style={styles.comunidadinput}>Goal: {communityData.goal}</Text>
+
+      <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
+        <Text style={styles.subscribeButtonText}>{subscribeButtonText}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
+
+
+
 
 export default HomePage;
 
@@ -51,11 +64,28 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         //marginTop:0,
         borderRadius: 50,
-        elevation: 0,
-        backgroundColor: "#FFDFF6",
+        elevation: 0,  
         paddingVertical: 20,
-        
     
-    }
+    },
+
+    //subscribe button
+  subscribeButton: {
+    alignItems: 'center',
+  justifyContent: 'center',
+  paddingVertical: 12,
+  paddingHorizontal: 20,
+  marginTop:25,
+  borderRadius: 2,
+  elevation: 4,
+  backgroundColor: "#FFDFF6",
+  },
+    subscribeButtonText: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
+  },
+
     
 });

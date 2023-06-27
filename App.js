@@ -1,9 +1,10 @@
 
 import {  CommunityProvider } from './CommunityContext';
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button } from 'react-native';
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
+import SubscribeButton from './HomePage';
 
 
 
@@ -33,14 +34,18 @@ export default function App() {
                 //style={styles.userImage}
               />
               <Text style={styles.homeName}></Text>
+        
+              <View style={styles.line} />
             
-            <Text style={styles.homeText}>Welcome to your Home Page</Text>
             {/* Add more UI components or content here */}    
           
             <CommunityProvider initialData={communityData}>
              <HomePage/>
-              
+
             </CommunityProvider>
+         {/* subscribe button */}
+        
+            <View style={styles.line} />
           
         
         </View>
@@ -197,7 +202,17 @@ const styles = StyleSheet.create({
     position: "absolute",
     top:110,
     left: 30, // Adjust the value to position the logo horizontally
+    
   },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: '#29746B',
+    marginTop:10,
+  
+  },
+
+  
   navItemText:{
     fontWeight: 'bold',
     marginBottom:5,
@@ -208,6 +223,21 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginBottom:5,
     color: "#eb7fe0",
+  },
+
+//subscribe button
+  subscribeButton: {
+    backgroundColor: 'pink',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginTop: 10,
+  },
+    subscribeButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 16,
+    textAlign: 'center',
   },
 
 });
