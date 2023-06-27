@@ -1,6 +1,6 @@
 
 import React, { useContext, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { CommunityContext } from './CommunityContext';
 
 const HomePage = () => {
@@ -11,27 +11,33 @@ const HomePage = () => {
     setClickCount((prevCount) => prevCount + 1);
   };
 
-  const subscribeButtonText = clickCount < 3 ? 'View' : 'Subscribe';
+  const subscribeButtonText = clickCount < 3 ? 'enter' : 'subscribe';
 
   return (
     <View style={styles.communidadcontainer}>
-      <Text style={styles.comunidadname}>Name of Community: {communityData.name}</Text>
-      <Text style={styles.comunidadinput}>Description: {communityData.description}</Text>
-      <Text style={styles.comunidadinput}>Founder: {communityData.founder}</Text>
-      <Text style={styles.comunidadinput}>Goal: {communityData.goal}</Text>
+      <Text style={styles.comunidadname}>Name of Community {communityData.name}</Text>
+      <Text style={styles.comunidadinput}>Description {communityData.description}</Text>
+      {/* <Text style={styles.comunidadinput}>Founder: {communityData.founder}</Text> */}
+      {/* <Text style={styles.comunidadinput}>Goal {communityData.goal}</Text> */}
 
-      <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
-        <Text style={styles.subscribeButtonText}>{subscribeButtonText}</Text>
-      </TouchableOpacity>
+      <View style={styles.containersubscribe}>
+        <Image source={require('./assets/members.png')} style={styles.membersimage} />
+        <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
+          <Text style={styles.subscribeButtonText}>{subscribeButtonText}</Text>
+        </TouchableOpacity>
+        
+      </View>
+
+      {/* number of subscribers  */}
+       <Text style={styles.amount}>1242 </Text>
+
     </View>
+    
   );
 };
 
 
-
-
 export default HomePage;
-
 
 const styles = StyleSheet.create({
 
@@ -48,43 +54,60 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "black",
     },
+
     comunidadinput:{
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingVertical: 2,
+      // alignItems: 'center',
+      // justifyContent: 'center',
       left:0,
-      marginTop:10,
-      borderRadius: 1,
+      marginTop:3,
       fontSize: 15, 
-      elevation: 4,
       //backgroundColor: "gray",
-      color: "gray",
+      color: "black",
     },
+
     communidadcontainer:{
-        paddingHorizontal: 20,
+        paddingHorizontal: 10,
         //marginTop:0,
-        borderRadius: 50,
         elevation: 0,  
-        paddingVertical: 20,
-    
+        paddingVertical: 10,
+        marginTop: 0,
+      
     },
 
     //subscribe button
   subscribeButton: {
-    alignItems: 'center',
-  justifyContent: 'center',
-  paddingVertical: 12,
-  paddingHorizontal: 20,
-  marginTop:25,
-  borderRadius: 2,
-  elevation: 4,
-  backgroundColor: "#FFDFF6",
+    paddingVertical: 8,
+    width: 119,
+    borderRadius: 30,
+    backgroundColor: "#FFDFF6",
+    alignSelf: 'flex-end',
+  
   },
-    subscribeButtonText: {
+
+  subscribeButtonText: {
     color: 'black',
-    fontWeight: 'bold',
+    fontWeight: '',
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: 'center', 
+   
+  },
+
+  membersimage:{
+    height: 110, // Adjust the height of the image
+    width: 70,
+    marginTop: -25,
+  // Adjust the width of the image
+  },
+
+  containersubscribe:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  amount:{
+   marginLeft: 12,
+   marginTop: -25,
+   fontSize: 20,
   },
 
     

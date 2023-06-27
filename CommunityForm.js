@@ -1,3 +1,4 @@
+import { faPiggyBank } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext, useState } from 'react';
 import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { CommunityContext } from './CommunityContext';
@@ -15,13 +16,6 @@ const CreateCommunity = () => {
     const communityData = { name, description, founder, goal };
     updateCommunityData(communityData);
     console.log(communityData)
-  };
-  const SubscribeButton = () => {
-    return (
-      <TouchableOpacity style={styles.subscribeButton}>
-        <Text style={styles.subscribeButtonText}>Subscribe</Text>
-      </TouchableOpacity>
-    );
   };
 
   return (
@@ -62,18 +56,18 @@ export default CreateCommunity;
 const styles = StyleSheet.create({
 button:{
   alignItems: 'center',
-  justifyContent: 'center',
-  paddingVertical: 12,
-  paddingHorizontal: 20,
+  paddingVertical: 8,
   marginTop:20,
-  borderRadius: 2,
+  borderRadius: 30,
   elevation: 4,
   backgroundColor: "#FFDFF6",
+  width: 100,
   },
   buttonText: {
     color: 'black',
     fontSize: 16,
-    //fontWeight: 'bold',
+    fontWeight: 'bold',
+    
   },
   type:{
 
@@ -85,20 +79,8 @@ button:{
     borderRadius: 1,
     fontSize: 17, 
     elevation: 0,
-    //backgroundColor: "gray",
+    color: "black",
   },
-  subscribeButton: {
-    backgroundColor: 'pink',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    marginTop: 10,
-  },
-    subscribeButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
-    textAlign: 'center',
-  },
+
   
 });

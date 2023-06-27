@@ -4,8 +4,7 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button } from 'react-native';
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
-import SubscribeButton from './HomePage';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default function App() {
@@ -55,6 +54,7 @@ export default function App() {
       {currentPage === 'Create' && (
           <View style={styles.createContainer}>
             <Text style={styles.createText}>Create your community here!</Text>
+            <View style={styles.line} />
             {/* // <Image
                 //source={require('./assets/user.png')} // Adjust the path to your logo image
                 //style={styles.userImage}
@@ -67,40 +67,63 @@ export default function App() {
           </View>
         )}
 
-        {currentPage === 'Profile' && <Text>Welcome to your Profile Page</Text>}
-      </View>
-
-      <Image
+      {currentPage === 'Profile' (
+          <View style={styles.createContainer}>
+            <Text style={styles.createText}>Create your community here!</Text>
+            <View style={styles.line} />
+            {/* // <Image
+                //source={require('./assets/user.png')} // Adjust the path to your logo image
+                //style={styles.userImage}
+              /> */}
+            {/* Add more UI components or content here */}   
+            <CommunityProvider>
+            
+            <CreateCommunity/>
+              </CommunityProvider> 
+              <Image
       source={require('./assets/logo.png')} // Replace with the actual path to your logo image
       style={styles.logo}
         />
+          </View>
+        )}
+
+      {/* <Image
+      source={require('./assets/logo.png')} // Replace with the actual path to your logo image
+      style={styles.logo}
+        /> */}
 
       {/* Horizontal Navigation Bar */}
       <View style={styles.bottomNavBar}>
+      {/* profile page icon */}
+      <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => handleNavigation('Profile')}
+        >
+            <Image
+       source={require('./assets/profile.png')} // Replace with the actual path to your logo image
+       style={styles.profileicon}
+      />
+        </TouchableOpacity>
+
+        {/* home page icon */}
         <TouchableOpacity
           style={styles.navItem}
           onPress={() => handleNavigation('Home')}
         >
-          <Text style={currentPage === 'Home' ? styles.activeNavItem : styles.navItemText}>
-            Home
-          </Text>
+         <Image
+        source={require('./assets/home.png')} // Replace with the actual path to your logo image
+        style={styles.homeicon}
+      />
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleNavigation('Profile')}
-        >
-          <Text style={currentPage === 'Profile' ? styles.activeNavItem : styles.navItemText}>
-            Profile
-          </Text>
-        </TouchableOpacity>
+       
         <TouchableOpacity
           style={styles.navItem}
           onPress={() => handleNavigation('Create')}
         >
-          <Text style={currentPage === 'Create' ? styles.activeNavItem : styles.navItemText}>
-            Create
-            
-          </Text>
+           <Image
+        source={require('./assets/post.png')} // Replace with the actual path to your logo image
+        style={styles.posticon}
+      />
         </TouchableOpacity>
       </View>
     </View>
@@ -125,20 +148,22 @@ const styles = StyleSheet.create({
   },
   bottomNavBar: {
     flexDirection: 'row',
-    height: 56,
+    height: 90,
     backgroundColor: '#fff',
+    justifyContent: 'space-evenly',
+    marginHorizontal: 50,
   },
   navItem: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    marginHorizontal: 2,
   },
-  navItemText: {
-    color: 'black',
-  },
+  
   activeNavItem: {
     color: '#C57EB1',
     fontWeight: 'bold',
+    marginHorizontal: 2,
   },
   logo: {
     position: 'absolute',
@@ -169,7 +194,7 @@ const styles = StyleSheet.create({
     left: 30, // Adjust the value to position the logo horizontally
   },
   createText:{
-    top:0,
+    top:10,
     fontSize: 23,
     color: 'black',
     paddingBottom: 30,
@@ -208,8 +233,6 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 1,
     backgroundColor: '#29746B',
-    marginTop:10,
-  
   },
 
   
@@ -224,20 +247,29 @@ const styles = StyleSheet.create({
     marginBottom:5,
     color: "#eb7fe0",
   },
-
-//subscribe button
-  subscribeButton: {
-    backgroundColor: 'pink',
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
-    marginTop: 10,
+  homeicon:{
+    position: 'absolute',
+    top: 1, // Adjust the value to position the user image vertically
+    left: 1, // Adjust the value to position the user image horizontally
+    width: 100,
+    height: 100,
+    resizeMode: 'cover',
   },
-    subscribeButtonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: 16,
-    textAlign: 'center',
+  profileicon:{
+    position: 'absolute',
+  top: 1, // Adjust the value to position the user image vertically
+  left: 1, // Adjust the value to position the user image horizontally
+  width: 100,
+  height: 100,
+  resizeMode: 'cover',
+  },
+  posticon:{
+    position: 'absolute',
+  top: 1, // Adjust the value to position the user image vertically
+  left: 1, // Adjust the value to position the user image horizontally
+  width: 100,
+  height: 100,
+  resizeMode: 'cover',
   },
 
 });
