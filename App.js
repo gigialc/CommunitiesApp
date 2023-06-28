@@ -116,6 +116,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     marginHorizontal: 50,
   },
+
   navItem: {
     flex: 1,
     justifyContent: 'center',
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginHorizontal: 2,
   },
+
   logo: {
     position: 'absolute',
     top: 1, // Adjust the value to position the logo vertically
@@ -150,12 +152,14 @@ const styles = StyleSheet.create({
     fontSize: 100,
 
   },
+
   createContainer:{
     width:300 ,
     position: "absolute",
     top:120,
     left: 30, // Adjust the value to position the logo horizontally
   },
+
   createText:{
     top:10,
     fontSize: 23,
@@ -163,12 +167,7 @@ const styles = StyleSheet.create({
     paddingBottom: 30,
 
   },
-  // profileCard: {
-  //   backgroundColor: 'pink',
-  //   borderRadius: 80,
-  //   padding: 100,
-  //   alignItems: 'left',
-  // },
+  
   profileName: {
     position: 'absolute',
     top: 10, // Adjust the value to position the logo vertically
@@ -196,6 +195,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 1,
     backgroundColor: '#29746B',
+    width:320,
   },
 
   
@@ -218,6 +218,7 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: 'cover',
   },
+
   profileicon:{
     position: 'absolute',
   top: 1, // Adjust the value to position the user image vertically
@@ -226,6 +227,7 @@ const styles = StyleSheet.create({
   height: 100,
   resizeMode: 'cover',
   },
+
   posticon:{
     position: 'absolute',
   top: 1, // Adjust the value to position the user image vertically
