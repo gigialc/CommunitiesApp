@@ -7,13 +7,13 @@ import { CommunityContext } from './CommunityContext';
 const CreateCommunity = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [founder, setFounder] = useState('');
-  const [goal, setGoal] = useState('');
+  // const [founder, setFounder] = useState('');
+  // const [goal, setGoal] = useState('');
 
   const { updateCommunityData } = useContext(CommunityContext);
 
   const handleSubmit = () => {
-    const communityData = { name, description, founder, goal };
+    const communityData = { name, description};
     updateCommunityData(communityData);
     console.log(communityData)
   };
@@ -32,7 +32,7 @@ const CreateCommunity = () => {
         onChangeText={text => setDescription(text)}
       />
 
-      <TextInput style={styles.type}
+      {/* <TextInput style={styles.type}
         placeholder="Name of Founder"
         value={founder}
         onChangeText={text => setFounder(text)}
@@ -42,7 +42,7 @@ const CreateCommunity = () => {
         placeholder="Goal"
         value={goal}
         onChangeText={text => setGoal(text)}
-      />
+      /> */}
 
       <TouchableOpacity style={styles.button} onPress={handleSubmit}>
         <Text style={styles.buttonText}>Submit</Text>

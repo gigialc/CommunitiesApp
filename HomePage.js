@@ -15,10 +15,10 @@ const HomePage = () => {
 
   return (
     <View style={styles.communidadcontainer}>
-      <Text style={styles.comunidadname}>Name of Community {communityData.name}</Text>
-      <Text style={styles.comunidadinput}>Description {communityData.description}</Text>
-      {/* <Text style={styles.comunidadinput}>Founder: {communityData.founder}</Text> */}
-      {/* <Text style={styles.comunidadinput}>Goal {communityData.goal}</Text> */}
+      <Text style={styles.comunidadname}>{communityData.name}</Text>
+      <Text style={styles.comunidadinput}>{communityData.description}</Text>
+      {/* <Text style={styles.comunidadinput}>{communityData.founder}</Text> */}
+      {/* <Text style={styles.comunidadinput}> {communityData.goal}</Text> */}
 
       <View style={styles.containersubscribe}>
         <Image source={require('./assets/members.png')} style={styles.membersimage} />
@@ -110,5 +110,4 @@ const styles = StyleSheet.create({
    fontSize: 20,
   },
 
-    
 });

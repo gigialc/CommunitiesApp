@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react';
 export const CommunityContext = createContext();
 
 export const CommunityProvider = ({ children }) => {
-  const [communityData, setCommunityData] = useState({});
+  const [communityData, setCommunityData] = useState(null);
 
   const updateCommunityData = (data) => {
     setCommunityData(data);

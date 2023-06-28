@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button } from 'react-native';
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
-import Icon from 'react-native-vector-icons/Ionicons';
 
 
 export default function App() {
@@ -13,12 +12,7 @@ export default function App() {
   const handleNavigation = (page) => {
     setCurrentPage(page);
   };
-  const communityData = {
-    name: 'Community Name',
-    description: 'Community Description',
-    founder: 'Founder Name',
-    goal: 'Community Goal',
-  };
+
 
   return (
     <View style={styles.container}>
@@ -38,14 +32,13 @@ export default function App() {
             
             {/* Add more UI components or content here */}    
           
-            <CommunityProvider initialData={communityData}>
+            <CommunityProvider >
              <HomePage/>
-
             </CommunityProvider>
+
          {/* subscribe button */}
         
             <View style={styles.line} />
-          
         
         </View>
       )}
@@ -55,42 +48,22 @@ export default function App() {
           <View style={styles.createContainer}>
             <Text style={styles.createText}>Create your community here!</Text>
             <View style={styles.line} />
-            {/* // <Image
-                //source={require('./assets/user.png')} // Adjust the path to your logo image
-                //style={styles.userImage}
-              /> */}
+           
             {/* Add more UI components or content here */}   
             <CommunityProvider>
-            
             <CreateCommunity/>
               </CommunityProvider> 
+
           </View>
         )}
 
-      {currentPage === 'Profile' (
-          <View style={styles.createContainer}>
-            <Text style={styles.createText}>Create your community here!</Text>
-            <View style={styles.line} />
-            {/* // <Image
-                //source={require('./assets/user.png')} // Adjust the path to your logo image
-                //style={styles.userImage}
-              /> */}
-            {/* Add more UI components or content here */}   
-            <CommunityProvider>
-            
-            <CreateCommunity/>
-              </CommunityProvider> 
-              <Image
+        {currentPage === 'Profile' && <Text>Welcome to your Profile Page</Text>}
+      </View>
+
+      <Image
       source={require('./assets/logo.png')} // Replace with the actual path to your logo image
       style={styles.logo}
         />
-          </View>
-        )}
-
-      {/* <Image
-      source={require('./assets/logo.png')} // Replace with the actual path to your logo image
-      style={styles.logo}
-        /> */}
 
       {/* Horizontal Navigation Bar */}
       <View style={styles.bottomNavBar}>
