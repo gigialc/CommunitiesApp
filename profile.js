@@ -22,12 +22,13 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    marginTop:40,
   },
   infoBox: {
-    width: 150,
+    width: 350,
     height: 150,
-    borderRadius: 75,
-    backgroundColor: 'pink',
+    borderRadius: 50,
+    backgroundColor: '#FFDFF6',
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
@@ -35,7 +36,8 @@ const styles = StyleSheet.create({
   infoText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: 'white',
+    color: 'black',
+
   },
 });
 
