@@ -1,21 +1,16 @@
-import { faPiggyBank } from '@fortawesome/free-solid-svg-icons';
 import React, { useContext, useState } from 'react';
 import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { CommunityContext } from './CommunityContext';
 
-
 const CreateCommunity = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  // const [founder, setFounder] = useState('');
-  // const [goal, setGoal] = useState('');
 
   const { updateCommunityData } = useContext(CommunityContext);
 
   const handleSubmit = () => {
-    const communityData = { name, description};
+    const communityData = { name, description };
     updateCommunityData(communityData);
-    console.log(communityData)
   };
 
   return (

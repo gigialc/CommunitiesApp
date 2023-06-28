@@ -13,13 +13,18 @@ const HomePage = () => {
 
   const subscribeButtonText = clickCount < 3 ? 'enter' : 'subscribe';
 
+  if (!communityData) {
+    return <Text>Loading...</Text>; // Display a loading message or any other component
+  }
+  
   return (
     <View style={styles.communidadcontainer}>
+      {communityData && (
+        <>
       <Text style={styles.comunidadname}>{communityData.name}</Text>
       <Text style={styles.comunidadinput}>{communityData.description}</Text>
-      {/* <Text style={styles.comunidadinput}>{communityData.founder}</Text> */}
-      {/* <Text style={styles.comunidadinput}> {communityData.goal}</Text> */}
-
+      </>
+      )}
       <View style={styles.containersubscribe}>
         <Image source={require('./assets/members.png')} style={styles.membersimage} />
         <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
@@ -35,7 +40,6 @@ const HomePage = () => {
     
   );
 };
-
 
 export default HomePage;
 

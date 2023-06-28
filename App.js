@@ -1,107 +1,97 @@
 
 import {  CommunityProvider } from './CommunityContext';
-import React, { useState } from 'react';
+import React, { Profiler, useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button } from 'react-native';
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
+import ProfilePage from './profile';
 
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('Home');
+  const [communityData, setCommunityData] = useState(null);
 
   const handleNavigation = (page) => {
     setCurrentPage(page);
   };
 
+  const updateCommunityData = (data) => {
+    setCommunityData(data);
+  };
+
 
   return (
-    <View style={styles.container}>
-      {/* App Content */}
-
-      <View style={styles.content}>
-      {currentPage === 'Home' && (
-          <View style={styles.homeContainer}>
-           
-             <Image
+    <CommunityProvider>
+      <View style={styles.container}>
+        {/* App Content */}
+        <View style={styles.content}>
+          {currentPage === 'Home' && (
+            <View style={styles.homeContainer}>
+              <Image
                 //source={require('./assets/user.png')} // Adjust the path to your logo image
                 //style={styles.userImage}
               />
               <Text style={styles.homeName}></Text>
-        
               <View style={styles.line} />
-            
-            {/* Add more UI components or content here */}    
-          
-            <CommunityProvider >
-             <HomePage/>
-            </CommunityProvider>
-
-         {/* subscribe button */}
-        
-            <View style={styles.line} />
-        
+              {/* Add more UI components or content here */}
+              <HomePage setCurrentPage={setCurrentPage} />
+              {/* subscribe button */}
+              <View style={styles.line} />
+            </View>
+          )}
+          {currentPage === 'Create' && (
+            <View style={styles.createContainer}>
+              <Text style={styles.createText}>Create your community here!</Text>
+              <View style={styles.line} />
+              {/* Add more UI components or content here */}
+              <CreateCommunity setCurrentPage={setCurrentPage} />
+            </View>
+          )}
+          {currentPage === 'Profile' && (
+            <View style={styles.profileContainer}>
+              <ProfilePage />
+            </View>
+          )}
         </View>
-      )}
-        
-        
-      {currentPage === 'Create' && (
-          <View style={styles.createContainer}>
-            <Text style={styles.createText}>Create your community here!</Text>
-            <View style={styles.line} />
-           
-            {/* Add more UI components or content here */}   
-            <CommunityProvider>
-            <CreateCommunity/>
-              </CommunityProvider> 
-
-          </View>
-        )}
-
-        {currentPage === 'Profile' && <Text>Welcome to your Profile Page</Text>}
-      </View>
-
-      <Image
-      source={require('./assets/logo.png')} // Replace with the actual path to your logo image
-      style={styles.logo}
+        <Image
+          source={require('./assets/logo.png')} // Replace with the actual path to your logo image
+          style={styles.logo}
         />
-
-      {/* Horizontal Navigation Bar */}
-      <View style={styles.bottomNavBar}>
-      {/* profile page icon */}
-      <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleNavigation('Profile')}
-        >
+        {/* Horizontal Navigation Bar */}
+        <View style={styles.bottomNavBar}>
+          {/* profile page icon */}
+          <TouchableOpacity
+            style={styles.navItem}
+            onPress={() => handleNavigation('Profile')}
+          >
             <Image
-       source={require('./assets/profile.png')} // Replace with the actual path to your logo image
-       style={styles.profileicon}
-      />
-        </TouchableOpacity>
-
-        {/* home page icon */}
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleNavigation('Home')}
-        >
-         <Image
-        source={require('./assets/home.png')} // Replace with the actual path to your logo image
-        style={styles.homeicon}
-      />
-        </TouchableOpacity>
-       
-        <TouchableOpacity
-          style={styles.navItem}
-          onPress={() => handleNavigation('Create')}
-        >
-           <Image
-        source={require('./assets/post.png')} // Replace with the actual path to your logo image
-        style={styles.posticon}
-      />
-        </TouchableOpacity>
+              source={require('./assets/profile.png')} // Replace with the actual path to your logo image
+              style={styles.profileicon}
+            />
+          </TouchableOpacity>
+          {/* home page icon */}
+          <TouchableOpacity
+            style={styles.navItem}
+            onPress={() => handleNavigation('Home')}
+          >
+            <Image
+              source={require('./assets/home.png')} // Replace with the actual path to your logo image
+              style={styles.homeicon}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.navItem}
+            onPress={() => handleNavigation('Create')}
+          >
+            <Image
+              source={require('./assets/post.png')} // Replace with the actual path to your logo image
+              style={styles.posticon}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </CommunityProvider>
   );
-  
 }
 
 const styles = StyleSheet.create({
