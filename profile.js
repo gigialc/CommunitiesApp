@@ -9,7 +9,7 @@ const ProfilePage = () => {
               source={require('./assets/profile.png')} 
               style={styles.profileicon}
         />
-        <Text style={styles.username}>John Doe</Text> {/* Replace with the user's username */}
+     
       </View>
       <View>
         <View style={styles.infoBox}>
