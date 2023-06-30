@@ -1,23 +1,26 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text, Image } from 'react-native';
 
 const ProfilePage = () => {
   return (
-    <View style={styles.header}>
+    <View style={styles.container}>
+      <View style={styles.header}>
         <Image
-          source={require('./profile.png')} 
+          source={require('./profile.png')}
           style={styles.profileImage}
         />
         <Text style={styles.username}>John Doe</Text> {/* Replace with the user's username */}
-    <View style={styles.container}>
-      <View style={styles.infoBox}>
-        <Text style={styles.infoText}>communities created</Text>
       </View>
-      <View style={styles.infoBox}>
-        <Text style={styles.infoText}>communities joined</Text>
-      </View>
-      <View style={styles.infoBox}>
-        <Text style={styles.infoText}>recently viewed</Text>
+      <View>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoText}>communities created</Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoText}>communities joined</Text>
+        </View>
+        <View style={styles.infoBox}>
+          <Text style={styles.infoText}>recently viewed</Text>
+        </View>
       </View>
     </View>
   );
