@@ -28,9 +28,8 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop:40,
+    marginTop: 40,
   },
-
   header: {
     alignItems: 'center',
     marginBottom: 20,
