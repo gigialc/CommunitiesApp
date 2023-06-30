@@ -6,7 +6,7 @@ const ProfilePage = () => {
     <View style={styles.container}>
       <View style={styles.header}>
         <Image
-          source={require('./profile.png')}
+             source={require('./destigfemmepi/assets/profile.png')}
           style={styles.profileImage}
         />
         <Text style={styles.username}>John Doe</Text> {/* Replace with the user's username */}
