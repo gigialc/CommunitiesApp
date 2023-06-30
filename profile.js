@@ -3,6 +3,12 @@ import { View, StyleSheet, Text } from 'react-native';
 
 const ProfilePage = () => {
   return (
+    <View style={styles.header}>
+        <Image
+          source={require('./profile.png')} 
+          style={styles.profileImage}
+        />
+        <Text style={styles.username}>John Doe</Text> {/* Replace with the user's username */}
     <View style={styles.container}>
       <View style={styles.infoBox}>
         <Text style={styles.infoText}>communities created</Text>
