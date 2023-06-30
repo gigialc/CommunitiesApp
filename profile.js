@@ -30,6 +30,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginTop:40,
   },
+
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
+  },
+  username: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginTop: 10,
+  },
   infoBox: {
     width: 350,
     height: 150,
