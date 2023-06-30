@@ -5,6 +5,9 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button }
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
 import ProfilePage from './profile';
+import Page1 from './Page1';
+import Page2 from './Page2';
+import Page3 from './Page3';
 
 
 export default function App() {
@@ -32,17 +35,17 @@ export default function App() {
                 //style={styles.userImage}
               />
               <Text style={styles.homeName}></Text>
-              <View style={styles.line} />
+              <View style={styles.topline} />
               {/* Add more UI components or content here */}
               <HomePage setCurrentPage={setCurrentPage} />
               {/* subscribe button */}
-              <View style={styles.line} />
+            
             </View>
           )}
           {currentPage === 'Create' && (
             <View style={styles.createContainer}>
               <Text style={styles.createText}>Create your community here!</Text>
-              <View style={styles.line} />
+              
               {/* Add more UI components or content here */}
               <CreateCommunity setCurrentPage={setCurrentPage} />
             </View>
@@ -52,7 +55,25 @@ export default function App() {
               <ProfilePage />
             </View>
           )}
-        </View>
+
+          {/* New pages */}
+      {currentPage === 'Page1' && (
+            <View style={styles.pageContainer}>
+              <Page1 />
+            </View>
+          )}
+      {currentPage === 'Page2' && (
+            <View style={styles.pageContainer}>
+              <Page2 />
+            </View>
+          )}
+      {currentPage === 'Page3' && (
+            <View style={styles.pageContainer}>
+              <Page3 />
+            </View>
+          )}
+     </View>
+
         <Image
           source={require('./assets/logo.png')} // Replace with the actual path to your logo image
           style={styles.logo}
@@ -99,11 +120,19 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
+
+  topline:{
+    borderBottomWidth: 1,
+    borderBottomColor: 'green',
+    marginVertical: 0,
+  },
+
   content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   text: {
     fontFamily: 'Arial', //
     fontSize: 20,
@@ -150,7 +179,6 @@ const styles = StyleSheet.create({
   CreateName:{
     top: 0, // Adjust the value to position the logo vertically
     fontSize: 100,
-
   },
 
   createContainer:{
@@ -164,8 +192,7 @@ const styles = StyleSheet.create({
     top:10,
     fontSize: 23,
     color: 'black',
-    paddingBottom: 30,
-
+    paddingBottom: 10,
   },
   
   profileName: {
@@ -189,27 +216,22 @@ const styles = StyleSheet.create({
     position: "absolute",
     top:110,
     left: 30, // Adjust the value to position the logo horizontally
-    
-  },
-  line: {
-    flex: 1,
-    height: 1,
-    backgroundColor: '#29746B',
-    width:320,
   },
 
-  
+
   navItemText:{
     fontWeight: 'bold',
     marginBottom:5,
     fontSize:15,
   },
+
   activeNavItem:{
     fontSize:20,
     fontWeight: 'bold',
     marginBottom:5,
     color: "#eb7fe0",
   },
+
   homeicon:{
     position: 'absolute',
     top: 1, // Adjust the value to position the user image vertically
@@ -229,7 +251,7 @@ const styles = StyleSheet.create({
   },
 
   posticon:{
-    position: 'absolute',
+  position: 'absolute',
   top: 1, // Adjust the value to position the user image vertically
   left: 1, // Adjust the value to position the user image horizontally
   width: 100,

@@ -5,13 +5,13 @@ const ProfilePage = () => {
   return (
     <View style={styles.container}>
       <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Name: John Doe</Text>
+        <Text style={styles.infoText}>communities created</Text>
       </View>
       <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Age: 25</Text>
+        <Text style={styles.infoText}>communities joined</Text>
       </View>
       <View style={styles.infoBox}>
-        <Text style={styles.infoText}>Location: New York</Text>
+        <Text style={styles.infoText}>recently viewed</Text>
       </View>
     </View>
   );
@@ -34,10 +34,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   infoText: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
     color: 'black',
-
+    position: 'absolute',
+    top: 20,
+    left: 20,
   },
 });
 

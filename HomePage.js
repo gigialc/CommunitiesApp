@@ -4,8 +4,9 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { CommunityContext } from './CommunityContext';
 
 const HomePage = () => {
-  const { communityData } = useContext(CommunityContext);
+  const { communities } = useContext(CommunityContext);
   const [clickCount, setClickCount] = useState(0);
+  
 
   const handleSubscribeClick = () => {
     setClickCount((prevCount) => prevCount + 1);
@@ -13,33 +14,33 @@ const HomePage = () => {
 
   const subscribeButtonText = clickCount < 3 ? 'enter' : 'subscribe';
 
-  if (!communityData) {
-    return <Text>Loading...</Text>; // Display a loading message or any other component
+  if (!communities || communities.length === 0) {
+    return <Text>No communities found.</Text>;
   }
-  
+
   return (
-    <View style={styles.communidadcontainer}>
-      {communityData && (
-        <>
-      <Text style={styles.comunidadname}>{communityData.name}</Text>
-      <Text style={styles.comunidadinput}>{communityData.description}</Text>
-      </>
-      )}
-      <View style={styles.containersubscribe}>
-        <Image source={require('./assets/members.png')} style={styles.membersimage} />
-        <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
-          <Text style={styles.subscribeButtonText}>{subscribeButtonText}</Text>
-        </TouchableOpacity>
+    <View>
+      {communities.map((community, index) => (
+        <View key={index} style={styles.communidadcontainer}>
+          <Text style={styles.comunidadname}>{community.name}</Text>
+          <Text style={styles.comunidadinput}>{community.description}</Text>
+          
+          <View style={styles.containersubscribe}>
+            <Image source={require('./assets/members.png')} style={styles.membersimage} />
+            <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
+              <Text style={styles.subscribeButtonText}>{subscribeButtonText}</Text>
+            </TouchableOpacity>
+          </View>
+          
+          {/* number of subscribers */}
+          <Text style={styles.amount}>1242</Text>
         
-      </View>
-
-      {/* number of subscribers  */}
-       <Text style={styles.amount}>1242 </Text>
-
+        </View>
+      ))}
     </View>
-    
   );
 };
+
 
 export default HomePage;
 
@@ -60,12 +61,10 @@ const styles = StyleSheet.create({
     },
 
     comunidadinput:{
-      // alignItems: 'center',
-      // justifyContent: 'center',
       left:0,
       marginTop:3,
       fontSize: 15, 
-      //backgroundColor: "gray",
+
       color: "black",
     },
 
@@ -76,11 +75,14 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         marginTop: 0,
         width:330,
+        borderBottomWidth: 1,
+        borderBottomColor: 'green',
+        marginVertical: 5,
       
     },
 
     //subscribe button
-  subscribeButton: {
+    subscribeButton: {
     paddingVertical: 8,
     width: 119,
     borderRadius: 30,

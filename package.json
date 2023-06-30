@@ -12,14 +12,16 @@
     "@builder.io/react": "^3.0.4",
     "@fortawesome/fontawesome-svg-core": "^6.4.0",
     "@fortawesome/free-solid-svg-icons": "^6.4.0",
-    "@fortawesome/react-native-fontawesome": "^0.3.0",
-    "expo": "~48.0.18",
+    "@react-native-firebase/auth": "^18.1.0",
+    "expo": "^48.0.19",
     "expo-status-bar": "~1.4.4",
+    "firebase": "^9.23.0",
     "react": "18.2.0",
     "react-native": "0.71.8"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "expo-cli": "^6.3.9"
   },
   "private": true
 }
