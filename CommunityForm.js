@@ -1,16 +1,28 @@
 import React, { useContext, useState } from 'react';
 import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { CommunityContext } from './CommunityContext';
+import Page1 from './Page1';
 
 const CreateCommunity = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [currentPage, setCurrentPage] = useState('Home');
 
   const { updateCommunityData } = useContext(CommunityContext);
+
+  const handleButtonPress = () => {
+    handleSubmit();
+    handleNavigation();
+  };
 
   const handleSubmit = () => {
     const communityData = { name, description };
     updateCommunityData(communityData);
+
+
+  };
+  const handleNavigation = (page) => {
+    setCurrentPage(page);
   };
 
   return (
@@ -22,7 +34,7 @@ const CreateCommunity = () => {
       />
 
       <TextInput style={styles.type}
-        placeholder="Description of Community"
+        placeholder="What is your mission?"
         value={description}
         onChangeText={text => setDescription(text)}
       />
@@ -39,10 +51,18 @@ const CreateCommunity = () => {
         onChangeText={text => setGoal(text)}
       /> */}
 
-      <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+      <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
         <Text style={styles.buttonText}>Submit</Text>
       </TouchableOpacity>
+
+      {currentPage === 'Page1' && (
+            <View style={styles.Page1}>
+              <Page1 />
+            </View>
+          )}
     </View>
+
+    
   );
 };
 
@@ -75,6 +95,12 @@ button:{
     fontSize: 17, 
     elevation: 0,
     color: "black",
+  },
+  Page1:{
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    left:0,
   },
 
   

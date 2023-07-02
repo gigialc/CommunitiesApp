@@ -5,9 +5,6 @@ import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button }
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
 import ProfilePage from './profile';
-import Page1 from './Page1';
-import Page2 from './Page2';
-import Page3 from './Page3';
 
 
 export default function App() {
@@ -15,8 +12,8 @@ export default function App() {
   const [communityData, setCommunityData] = useState(null);
 
   const handleNavigation = (page) => {
-    setCurrentPage(page);
-  };
+     setCurrentPage(page);
+   };
 
   const updateCommunityData = (data) => {
     setCommunityData(data);
@@ -59,6 +56,7 @@ export default function App() {
           {/* New pages */}
       {currentPage === 'Page1' && (
             <View style={styles.pageContainer}>
+              <Page1 setCurrentPage={setCurrentPage} />
               <Page1 />
             </View>
           )}
