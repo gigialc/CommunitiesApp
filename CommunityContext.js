@@ -9,7 +9,7 @@ export const CommunityProvider = ({ children }) => {
   const updateCommunityData = (data) => {
     setCommunityData(data);
     setCommunities((prevCommunities) => [data, ...prevCommunities]);
-  };
+  };  
 
   const contextValue = {
     communityData,

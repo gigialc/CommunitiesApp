@@ -1,16 +1,10 @@
-import React from 'react';
 import { View, StyleSheet, Text, Image } from 'react-native';
+import React, { useContext , createContext, useState } from 'react';
 
 const ProfilePage = () => {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Image
-              source={require('./assets/profile.png')} 
-              style={styles.profileicon}
-        />
-     
-      </View>
+    
       <View>
         <View style={styles.infoBox}>
           <Text style={styles.infoText}>communities created</Text>
@@ -31,7 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 40,
+    marginTop: 150,
   },
   header: {
     alignItems: 'center',
@@ -44,7 +38,7 @@ const styles = StyleSheet.create({
   },
   username: {
     fontSize: 24,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     marginTop: 10,
   },
   infoBox: {

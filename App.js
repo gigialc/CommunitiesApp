@@ -1,11 +1,11 @@
-
+import Page1 from './Page1';
+import { ScrollView } from 'react-native';
 import {  CommunityProvider } from './CommunityContext';
 import React, { Profiler, useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, SafeAreaView, Button } from 'react-native';
 import HomePage from './HomePage';
 import CreateCommunity from './CommunityForm';
 import ProfilePage from './profile';
-
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState('Home');
@@ -21,8 +21,11 @@ export default function App() {
 
 
   return (
+   
     <CommunityProvider>
       <View style={styles.container}>
+    
+      <ScrollView>
         {/* App Content */}
         <View style={styles.content}>
           {currentPage === 'Home' && (
@@ -45,6 +48,8 @@ export default function App() {
               
               {/* Add more UI components or content here */}
               <CreateCommunity setCurrentPage={setCurrentPage} />
+
+
             </View>
           )}
           {currentPage === 'Profile' && (
@@ -54,13 +59,13 @@ export default function App() {
           )}
 
           {/* New pages */}
-      {currentPage === 'Page1' && (
-            <View style={styles.pageContainer}>
-              <Page1 setCurrentPage={setCurrentPage} />
-              <Page1 />
-            </View>
-          )}
-      {currentPage === 'Page2' && (
+          {currentPage === 'Page1' && (
+           <View style={styles.pageContainer}>
+          
+             </View>
+              )}
+
+          {currentPage === 'Page2' && (
             <View style={styles.pageContainer}>
               <Page2 />
             </View>
@@ -71,13 +76,20 @@ export default function App() {
             </View>
           )}
      </View>
-
+   
         <Image
           source={require('./assets/logo.png')} // Replace with the actual path to your logo image
           style={styles.logo}
         />
+         </ScrollView>
         {/* Horizontal Navigation Bar */}
+      
         <View style={styles.bottomNavBar}>
+           {/* Background Rectangle */}
+           <Image
+            source={require('./assets/nav.png')} // Replace with the actual path to your logo image
+            style={styles.nav}
+          />
           {/* profile page icon */}
           <TouchableOpacity
             style={styles.navItem}
@@ -110,6 +122,7 @@ export default function App() {
         </View>
       </View>
     </CommunityProvider>
+   
   );
 }
 
@@ -138,10 +151,13 @@ const styles = StyleSheet.create({
   },
   bottomNavBar: {
     flexDirection: 'row',
-    height: 90,
-    backgroundColor: '#fff',
-    justifyContent: 'space-evenly',
-    marginHorizontal: 50,
+    height: 0,
+    backgroundColor: '#ffffff',
+    alignItems: 'center',
+    position: 'absolute',
+    bottom: 100,
+    left: 0,
+    right: 0,
   },
 
   navItem: {
@@ -150,7 +166,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginHorizontal: 2,
   },
-  
+
   activeNavItem: {
     color: '#C57EB1',
     fontWeight: 'bold',
@@ -163,15 +179,6 @@ const styles = StyleSheet.create({
     left: 1, // Adjust the value to position the logo horizontally
     width: 150, // Adjust the value to set the desired width of the logo
     height: 150, 
-  },
- 
- userImage: {
-  position: 'absolute',
-  top: 1, // Adjust the value to position the user image vertically
-  left: 1, // Adjust the value to position the user image horizontally
-  width: 50,
-  height: 50,
-  resizeMode: 'cover',
   },
 
   CreateName:{
@@ -203,31 +210,17 @@ const styles = StyleSheet.create({
   },
  
   homeText:{
-    top:0,
-    fontSize: 23,
-    color: 'black',
-    paddingBottom: 30,
+   top:0,
+   fontSize: 23,
+     color: 'black',
+     paddingBottom: 30,
     
-  },
+},
   homeContainer:{
     width:300 ,
     position: "absolute",
     top:110,
     left: 30, // Adjust the value to position the logo horizontally
-  },
-
-
-  navItemText:{
-    fontWeight: 'bold',
-    marginBottom:5,
-    fontSize:15,
-  },
-
-  activeNavItem:{
-    fontSize:20,
-    fontWeight: 'bold',
-    marginBottom:5,
-    color: "#eb7fe0",
   },
 
   homeicon:{
@@ -255,6 +248,13 @@ const styles = StyleSheet.create({
   width: 100,
   height: 100,
   resizeMode: 'cover',
+  },
+  nav:{
+    position: 'absolute',
+    height: 100,
+    width: 1000,
+    bottom:-100,
+    backgroundColor: '#0000ff',
   },
 
 });

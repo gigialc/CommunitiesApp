@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { CommunityContext } from './CommunityContext';
@@ -24,7 +23,7 @@ const HomePage = () => {
         <View key={index} style={styles.communidadcontainer}>
           <Text style={styles.comunidadname}>{community.name}</Text>
           <Text style={styles.comunidadinput}>{community.description}</Text>
-          
+          <Text style={styles.comunidadinput}>{community.incentives}</Text>          
           <View style={styles.containersubscribe}>
             <Image source={require('./assets/members.png')} style={styles.membersimage} />
             <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>

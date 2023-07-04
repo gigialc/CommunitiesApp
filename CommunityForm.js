@@ -6,6 +6,7 @@ import Page1 from './Page1';
 const CreateCommunity = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [incentives, setIncentives] = useState('');
   const [currentPage, setCurrentPage] = useState('Home');
 
   const { updateCommunityData } = useContext(CommunityContext);
@@ -16,13 +17,12 @@ const CreateCommunity = () => {
   };
 
   const handleSubmit = () => {
-    const communityData = { name, description };
+    const communityData = { name, description, incentives };
     updateCommunityData(communityData);
 
-
   };
-  const handleNavigation = (page) => {
-    setCurrentPage(page);
+  const handleNavigation = () => {
+    setCurrentPage('Page1');
   };
 
   return (
@@ -39,17 +39,17 @@ const CreateCommunity = () => {
         onChangeText={text => setDescription(text)}
       />
 
-      {/* <TextInput style={styles.type}
-        placeholder="Name of Founder"
-        value={founder}
-        onChangeText={text => setFounder(text)}
+      <TextInput style={styles.type}
+        placeholder="Incentives"
+        value={incentives}
+        onChangeText={text => setIncentives(text)}
       />
 
-      <TextInput style={styles.type}
+      {/* <TextInput style={styles.type}
         placeholder="Goal"
         value={goal}
         onChangeText={text => setGoal(text)}
-      /> */}
+      />  */}
 
       <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
         <Text style={styles.buttonText}>Submit</Text>
