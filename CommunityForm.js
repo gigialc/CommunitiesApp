@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { View, TextInput, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import { CommunityContext } from './CommunityContext';
-import Page1 from './Page1';
 
 const CreateCommunity = () => {
   const [name, setName] = useState('');
@@ -13,7 +12,7 @@ const CreateCommunity = () => {
 
   const handleButtonPress = () => {
     handleSubmit();
-    handleNavigation();
+    
   };
 
   const handleSubmit = () => {
@@ -21,9 +20,7 @@ const CreateCommunity = () => {
     updateCommunityData(communityData);
 
   };
-  const handleNavigation = () => {
-    setCurrentPage('Page1');
-  };
+  
 
   return (
     <View>
@@ -75,7 +72,7 @@ button:{
   marginTop:20,
   borderRadius: 30,
   elevation: 4,
-  backgroundColor: "#FFDFF6",
+  backgroundColor: "pink",
   width: 100,
   },
   buttonText: {

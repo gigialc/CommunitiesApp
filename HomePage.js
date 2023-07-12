@@ -3,12 +3,13 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { CommunityContext } from './CommunityContext';
 
 const HomePage = () => {
-  const { communities } = useContext(CommunityContext);
+  const { communities, setCurrentPage,currentPage } = useContext(CommunityContext);
   const [clickCount, setClickCount] = useState(0);
-  
 
   const handleSubscribeClick = () => {
     setClickCount((prevCount) => prevCount + 1);
+    setCurrentPage('NewPage');
+    
   };
 
   const subscribeButtonText = clickCount < 3 ? 'enter' : 'subscribe';
@@ -25,22 +26,18 @@ const HomePage = () => {
           <Text style={styles.comunidadinput}>{community.description}</Text>
           <Text style={styles.comunidadinput}>{community.incentives}</Text>          
           <View style={styles.containersubscribe}>
-            <Image source={require('./assets/members.png')} style={styles.membersimage} />
-            <TouchableOpacity style={styles.subscribeButton} onPress={handleSubscribeClick}>
+          <TouchableOpacity onPress={() => handleSubscribeClick('Community')}>
               <Text style={styles.subscribeButtonText}>{subscribeButtonText}</Text>
             </TouchableOpacity>
           </View>
           
-          {/* number of subscribers */}
-          <Text style={styles.amount}>1242</Text>
+        
         
         </View>
       ))}
     </View>
   );
 };
-
-
 export default HomePage;
 
 const styles = StyleSheet.create({
@@ -63,30 +60,25 @@ const styles = StyleSheet.create({
       left:0,
       marginTop:3,
       fontSize: 15, 
-
-      color: "black",
+      color: "gray",
+   
     },
 
     communidadcontainer:{
-        paddingHorizontal: 10,
-        //marginTop:0,
-        elevation: 0,  
         paddingVertical: 10,
-        marginTop: 0,
         width:330,
         borderBottomWidth: 1,
-        borderBottomColor: 'green',
-        marginVertical: 5,
-      
+        borderBottomColor: 'gray',
     },
 
     //subscribe button
     subscribeButton: {
-    paddingVertical: 8,
+    paddingVertical: 6,
     width: 119,
     borderRadius: 30,
-    backgroundColor: "#FFDFF6",
+    backgroundColor: "pink",
     alignSelf: 'flex-end',
+    marginTop: 10,
   
   },
 

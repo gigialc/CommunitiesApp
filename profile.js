@@ -1,21 +1,34 @@
-import { View, StyleSheet, Text, Image } from 'react-native';
-import React, { useContext , createContext, useState } from 'react';
+import { View, StyleSheet, Text, Image, ScrollView } from 'react-native';
+import React, { useContext } from 'react';
+import { CommunityContext } from './CommunityContext';
 
 const ProfilePage = () => {
+  const { communities } = useContext(CommunityContext);
+
   return (
     <View style={styles.container}>
-    
-      <View>
-        <View style={styles.infoBox}>
-          <Text style={styles.infoText}>communities created</Text>
+       <View style={styles.innerContainer}>
+      <ScrollView>
+        <View>
+          <View style={styles.infoBox}>
+            <Text style={styles.infoText}>communities created</Text>
+            <ScrollView style={styles.communitiesContainer}>
+              {communities.map((community, index) => (
+                <Text key={index} style={styles.miscomunidades}>
+                  {community.name}
+                </Text>
+              ))}
+            </ScrollView>
+          </View>
+          <View style={styles.infoBox}>
+            <Text style={styles.infoText}>communities joined</Text>
+          </View>
+          <View style={styles.infoBox}>
+            <Text style={styles.infoText}>recently viewed</Text>
+          </View>
         </View>
-        <View style={styles.infoBox}>
-          <Text style={styles.infoText}>communities joined</Text>
-        </View>
-        <View style={styles.infoBox}>
-          <Text style={styles.infoText}>recently viewed</Text>
-        </View>
-      </View>
+      </ScrollView>
+    </View>
     </View>
   );
 };
@@ -24,40 +37,32 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 150,
+    justifyContent: 'flex-start',
+    padding: 20,
+    marginTop: 100,
+    width: '80%', // Adjust the width value as needed
   },
-  header: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-  },
-  username: {
-    fontSize: 24,
-    // fontWeight: 'bold',
-    marginTop: 10,
-  },
+  
   infoBox: {
-    width: 350,
-    height: 150,
-    borderRadius: 50,
-    backgroundColor: '#FFDFF6',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 20,
+    backgroundColor: 'pink',
+    borderRadius: 10,
+    padding: 10,
+    marginVertical: 10,
   },
   infoText: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  communitiesContainer: {
+    maxHeight: 150,
+  },
+  miscomunidades: {
+    fontSize: 16,
     color: 'black',
-    position: 'absolute',
-    top: 20,
-    left: 20,
+    marginBottom: 5,
   },
 });
+
 
 export default ProfilePage;
